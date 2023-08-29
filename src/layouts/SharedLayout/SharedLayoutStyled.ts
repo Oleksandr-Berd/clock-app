@@ -5,8 +5,11 @@ type Props = {
 };
 
 export const MainLayout = styled.main<Props>`
-
   height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   padding-left: 26px;
   padding-right: 26px;
