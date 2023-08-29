@@ -1,6 +1,15 @@
 
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"),
+    url("assets/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf") format("truetype");
+}
+
 body{
 margin: 0;
+background: transparent;
+font-family: "Inter";
+color:#fff
 }
 
 h1, h2, h3, h4 , h5 ,h6{
