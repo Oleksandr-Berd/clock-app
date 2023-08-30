@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 import * as SC from "./TimeSetStyled";
 
@@ -9,6 +10,9 @@ import { ReactComponent as More } from "../../assets/icons/more.svg";
 import { ReactComponent as Less } from "../../assets/icons/less.svg";
 import bgMobileDay from "../../assets/mobile/bg-image-daytime.jpg";
 import bgMobileNight from "../../assets/mobile/bg-image-nighttime.jpg";
+import bgTabletDay from "../../assets/tablet/bg-image-daytime.jpg"
+import bgTabletNight from "../../assets/tablet/bg-image-nighttime.jpg";
+
 
 
 
@@ -24,6 +28,7 @@ type Props = {
   isMore:boolean;
 };
 
+
 const TimeSet: React.FC<Props> = ({
   ipAddress,
   fetchTimeZone,
@@ -31,6 +36,9 @@ const TimeSet: React.FC<Props> = ({
   handleToggle,
   isMore,
 }) => {
+
+    const isTablet = useMediaQuery("(min-width:768px) and (max-width:1439px)");
+
   useEffect(() => {
     fetchTimeZone(ipAddress!);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,14 +72,21 @@ const greetings = hours >= 5 && hours < 12 ? "good morning"
 
   const buttonText = !isMore ? "more" : "less"
 
+  const bgDay = isTablet ? bgTabletDay : bgMobileDay;
+  const bgNight = isTablet ? bgTabletNight : bgMobileNight
+
   return (
     <>
-      <SC.CommonCon bg={hours >= 5 && hours < 18 ? bgMobileDay : bgMobileNight}>
+      <SC.CommonCon bg={hours >= 5 && hours < 18 ? bgDay : bgNight}>
         {!isMore ? <Quotes /> : null}
         <div>
           <SC.GreetingCon>
-            {hours >= 5 && hours < 18 ? <Day/> : <Night/>} 
-            <SC.GreetingText>{greetings}</SC.GreetingText>
+            {hours >= 5 && hours < 18 ? <Day /> : <Night />}
+            {isTablet ? (
+              <SC.GreetingText>{greetings}, it's current</SC.GreetingText>
+            ) : (
+              <SC.GreetingText>{greetings}</SC.GreetingText>
+            )}
           </SC.GreetingCon>
           <SC.TimeCon>
             <SC.Time>{actualTime}</SC.Time>

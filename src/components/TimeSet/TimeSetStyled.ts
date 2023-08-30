@@ -19,21 +19,36 @@ export const CommonCon = styled.div<Props>`
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: multiply;
   background-size: cover;
+
+  @media (min-width: 768px){
+    padding-left: 64px;
+    padding-top: 80px;
+  }
 `;
 
 export const GreetingCon = styled.div`
   display: flex;
   flex-direction: row;
-  /* align-items: flex-start; */
   align-items: center;
 
   margin-bottom: 16px;
+
+  @media (min-width: 768px){
+    margin-bottom: 0;
+  }
 `;
 
 export const GreetingText = styled.p`
   margin-left: 16px;
 
-  text-transform: uppercase;    
+  text-transform: uppercase;
+  
+  @media (min-width: 768px){
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 3.6px;
+    font-weight: normal;
+  }
 `;
 
 export const TimeCon = styled.div`
@@ -42,12 +57,24 @@ export const TimeCon = styled.div`
   align-items: flex-end;
 
   margin-bottom: 16px;
+
+  @media (min-width: 768px){
+    margin-bottom: 0;
+  }
 `;
 
 export const Time = styled.p`
   font-size: 100px;
   letter-spacing: -2.5px;
   font-weight: bold;
+
+  @media (min-width: 768px){
+margin-bottom: 0;
+margin-right: 11px;
+
+    font-size: 175px;
+    letter-spacing: 4.38px;
+  }
 `;
 
 export const Zone = styled.p`
@@ -56,6 +83,13 @@ export const Zone = styled.p`
   font-size: 15px;
   font-weight: lighter;
   line-height: 1.87;
+
+  @media (min-width: 768px) {
+    margin-bottom: 36px;
+
+    font-size: 32px;
+    line-height: 0.86;
+  }
 `;
 
 export const LocationCon = styled.div`
@@ -66,11 +100,21 @@ export const LocationCon = styled.div`
 
   text-transform: uppercase;
 
+  @media (min-width: 768px){
+    margin-bottom: 80px;
+  }
+
   & > * {
     font-size: 15px;
     font-weight: bold;
     line-height: 1.87;
     letter-spacing: 3px;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+      letter-spacing: 3.6px;
+      line-height: 1.56;
+    }
   }
 
   & > *:not(:last-child) {
@@ -93,6 +137,17 @@ export const ToggleButton = styled.button`
   border: none;
   border-radius: 28px;
 
+  @media (min-width: 768px) {
+    width: 146px;
+
+    justify-content: space-between;
+
+    padding-left: 21px;
+    padding-right: 9px;
+    padding-top: 15px;
+    padding-bottom: 13px;
+  }
+
   & > span {
     margin-right: 15px;
 
@@ -100,6 +155,12 @@ export const ToggleButton = styled.button`
     font-size: 12px;
     letter-spacing: 3.75px;
     line-height: 1.67;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+      letter-spacing: 5px;
+      line-height: 1.56;
+    }
   }
 `;
 
@@ -111,6 +172,16 @@ export const AddCon = styled.ul`
 
   background: linear-gradient(to bottom, #979797, #fff);
 
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+
+    padding-left: 64px;
+    padding-top: 119px;
+    padding-bottom: 119px;
+  }
+
   & > li {
     display: flex;
     flex-direction: row;
@@ -120,8 +191,16 @@ export const AddCon = styled.ul`
     text-transform: uppercase;
     color: #000;
 
+    @media (min-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     &:not(:last-child) {
       margin-bottom: 16px;
+
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+      }
     }
 
     & > h6 {
@@ -129,12 +208,22 @@ export const AddCon = styled.ul`
       letter-spacing: 2px;
       line-height: 2.8;
       font-weight: normal;
+
+      @media (min-width: 768px) {
+        font-size: 13px;
+        line-height: 2.6;
+        line-height: 2.15;
+      }
     }
 
-    &>p{
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 1.4;
+    & > p {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.4;
+
+      @media (min-width: 768px){
+        font-size: 40px;
+      }
     }
   }
 `;
