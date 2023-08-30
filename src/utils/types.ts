@@ -8,8 +8,8 @@ export type QuoteType = {
 export type TimezoneType = {
   abbreviation: string;
   datetime: any;
-  dayOfWeek: number;
-  dayOfYear: number;
+  day_of_week: number;
+  day_of_year: number;
   timezone: string;
-  weekNumber: number;
+  week_number: number;
 };

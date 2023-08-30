@@ -3,7 +3,6 @@ import { Dna } from "react-loader-spinner";
 
 import * as SC from "./SharedLayoutStyled";
 
-import bgMobileDay from "../../assets/mobile/bg-image-daytime.jpg";
 
 type Props = {
   children: React.ReactNode;
@@ -11,7 +10,7 @@ type Props = {
 
 const SharedLayout: React.FC<Props> = ({ children }) => {
   return (
-    <SC.MainLayout bg={bgMobileDay}>
+    <SC.MainLayout>
       <Suspense
         fallback={
           <Dna

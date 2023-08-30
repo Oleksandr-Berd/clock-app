@@ -10,6 +10,7 @@ import { TimezoneType } from './utils/types';
 function App() {
   const ipAddress = useRef<string | null>(null);
 
+const [isMore, setIsMore] = useState<boolean>(false);
     const [locationData, setLocationData] = useState<TimezoneType | null>(null);
     const [error, setError] = useState<string | null>(null)
 
@@ -41,7 +42,9 @@ const fetchIpAddress = async () => {
   fetchIpAddress();
 });
 
-
+const handleToggle = () => {
+  setIsMore(!isMore);
+};
   
   return (
     <div>
@@ -49,13 +52,15 @@ const fetchIpAddress = async () => {
         <h1>{error}</h1>
       ) : (
         <SharedLayout>
-          <Quotes />
+         
           <TimeSet
             ipAddress={
               ipAddress.current ? ipAddress.current : localStorage.getItem("ip")
             }
             fetchTimeZone={fetchTimeZone}
             timeSetData={locationData}
+            handleToggle={handleToggle}
+            isMore={isMore}
           />
         </SharedLayout>
       )}
