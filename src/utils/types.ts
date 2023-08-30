@@ -3,3 +3,13 @@ export type QuoteType = {
   content: string;
   author: string;
 };
+
+
+export type TimezoneType = {
+  abbreviation: string;
+  datetime: any;
+  dayOfWeek: number;
+  dayOfYear: number;
+  timezone: string;
+  weekNumber: number;
+};
