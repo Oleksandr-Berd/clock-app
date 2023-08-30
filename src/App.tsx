@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import Quotes from './components/Quotes/Quotes';
 import TimeSet from './components/TimeSet/TimeSet';
 import SharedLayout from './layouts/SharedLayout/SharedLayout';
 import { getIpAddress, getTimeZone } from './utils/services';

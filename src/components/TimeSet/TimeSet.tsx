@@ -3,9 +3,13 @@ import { useEffect } from "react";
 import * as SC from "./TimeSetStyled";
 
 import { ReactComponent as Day } from "../../assets/icons/day.svg";
+import { ReactComponent as Night } from "../../assets/icons/night.svg";
+
 import { ReactComponent as More } from "../../assets/icons/more.svg";
 import { ReactComponent as Less } from "../../assets/icons/less.svg";
 import bgMobileDay from "../../assets/mobile/bg-image-daytime.jpg";
+import bgMobileNight from "../../assets/mobile/bg-image-nighttime.jpg";
+
 
 
 import { TimezoneType } from "../../utils/types";
@@ -49,6 +53,11 @@ const weekNumber = timeSetData?.week_number;
 
   const formattedTime = currentTime?.split("T")[1].split(".")[0];
   const hours = formattedTime?.split(":")[0];
+
+const greetings = hours >= 5 && hours < 12 ? "good morning" 
+: hours >= 12 && hours < 18 ? "good afternoon"
+: "good evening" 
+
   const minutes = formattedTime?.split(":")[1];
 
   const actualTime = hours + ":" + minutes;
@@ -57,12 +66,12 @@ const weekNumber = timeSetData?.week_number;
 
   return (
     <>
-      <SC.CommonCon bg={bgMobileDay}>
+      <SC.CommonCon bg={hours >= 5 && hours < 18 ? bgMobileDay : bgMobileNight}>
         {!isMore ? <Quotes /> : null}
         <div>
           <SC.GreetingCon>
-            <Day />
-            <SC.GreetingText>good morning</SC.GreetingText>
+            {hours >= 5 && hours < 18 ? <Day/> : <Night/>} 
+            <SC.GreetingText>{greetings}</SC.GreetingText>
           </SC.GreetingCon>
           <SC.TimeCon>
             <SC.Time>{actualTime}</SC.Time>
@@ -81,22 +90,22 @@ const weekNumber = timeSetData?.week_number;
       </SC.CommonCon>
       {isMore ? (
         <SC.AddCon>
-          <div>
-            <p>current timezone</p>
+          <li>
+            <h6>current timezone</h6>
             <p>{currentTimeZone}</p>
-          </div>
-          <div>
-            <p>day of the year</p>
+          </li>
+          <li>
+            <h6>day of the year</h6>
             <p>{dayOfTheYear}</p>
-          </div>
-          <div>
-            <p>day of the week</p>
+          </li>
+          <li>
+            <h6>day of the week</h6>
             <p>{dayOfTheWeek}</p>
-          </div>
-          <div>
-            <p>week number</p>
+          </li>
+          <li>
+            <h6>week number</h6>
             <p>{weekNumber}</p>
-          </div>
+          </li>
         </SC.AddCon>
       ) : null}
     </>
