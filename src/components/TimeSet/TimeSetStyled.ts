@@ -24,7 +24,24 @@ export const CommonCon = styled.div<Props>`
     padding-left: 64px;
     padding-top: 80px;
   }
+
+  @media (min-width: 1440px){
+
+    padding-left: 165px;
+    padding-right: 165px;
+    padding-top:56px;
+    padding-bottom: 98px;
+  }
 `;
+
+export const FlexCon = styled.div`
+@media (min-width: 1440px){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+`
 
 export const GreetingCon = styled.div`
   display: flex;
@@ -49,6 +66,12 @@ export const GreetingText = styled.p`
     letter-spacing: 3.6px;
     font-weight: normal;
   }
+
+  @media (min-width: 1440px){
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: 4px;
+  }
 `;
 
 export const TimeCon = styled.div`
@@ -60,6 +83,10 @@ export const TimeCon = styled.div`
 
   @media (min-width: 768px){
     margin-bottom: 0;
+  }
+
+  @media (min-width: 1440px){
+    margin-bottom: 16px;
   }
 `;
 
@@ -74,6 +101,11 @@ margin-right: 11px;
 
     font-size: 175px;
     letter-spacing: 4.38px;
+  }
+
+  @media (min-width: 1440px){
+    font-size: 200px;
+    letter-spacing: -5px;
   }
 `;
 
@@ -90,6 +122,11 @@ export const Zone = styled.p`
     font-size: 32px;
     line-height: 0.86;
   }
+
+  @media (min-width: 1440px){
+    font-size: 40px;
+    line-height: 1.42;
+  }
 `;
 
 export const LocationCon = styled.div`
@@ -104,6 +141,10 @@ export const LocationCon = styled.div`
     margin-bottom: 80px;
   }
 
+  @media (min-width: 1440px){
+    margin-bottom: 0;
+  }
+
   & > * {
     font-size: 15px;
     font-weight: bold;
@@ -114,6 +155,12 @@ export const LocationCon = styled.div`
       font-size: 18px;
       letter-spacing: 3.6px;
       line-height: 1.56;
+    }
+
+    @media (min-width: 1440px){
+      font-size: 24px;
+      letter-spacing: 4.8px;
+      line-height: 1.17;
     }
   }
 
@@ -182,6 +229,12 @@ export const AddCon = styled.ul`
     padding-bottom: 119px;
   }
 
+  @media (min-width: 1440px){
+    padding-left: 165px;
+    padding-top: 74px;
+    padding-bottom: 74px;
+  }
+
   & > li {
     display: flex;
     flex-direction: row;
@@ -214,6 +267,12 @@ export const AddCon = styled.ul`
         line-height: 2.6;
         line-height: 2.15;
       }
+
+      @media (min-width: 1440px){
+        font-size: 15px;
+        letter-spacing: 3px;
+        line-height: 1.87;
+      }
     }
 
     & > p {
@@ -223,6 +282,10 @@ export const AddCon = styled.ul`
 
       @media (min-width: 768px){
         font-size: 40px;
+      }
+
+      @media (min-width: 1440px){
+        font-size: 56px;
       }
     }
   }

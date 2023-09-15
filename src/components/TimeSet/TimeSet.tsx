@@ -12,6 +12,8 @@ import bgMobileDay from "../../assets/mobile/bg-image-daytime.jpg";
 import bgMobileNight from "../../assets/mobile/bg-image-nighttime.jpg";
 import bgTabletDay from "../../assets/tablet/bg-image-daytime.jpg"
 import bgTabletNight from "../../assets/tablet/bg-image-nighttime.jpg";
+import bgDesktopDay from "../../assets/desktop/bg-image-daytime.jpg"
+import bgDesktopNight from "../../assets/desktop/bg-image-nighttime.jpg"
 
 
 
@@ -38,6 +40,7 @@ const TimeSet: React.FC<Props> = ({
 }) => {
 
     const isTablet = useMediaQuery("(min-width:768px) and (max-width:1439px)");
+    const isDesktop = useMediaQuery("(min-width:1440px)")
 
   useEffect(() => {
     fetchTimeZone(ipAddress!);
@@ -72,36 +75,38 @@ const greetings = hours >= 5 && hours < 12 ? "good morning"
 
   const buttonText = !isMore ? "more" : "less"
 
-  const bgDay = isTablet ? bgTabletDay : bgMobileDay;
-  const bgNight = isTablet ? bgTabletNight : bgMobileNight
+  const bgDay = isTablet ? bgTabletDay : isDesktop ? bgDesktopDay : bgMobileDay;
+  const bgNight = isTablet ? bgTabletNight : isDesktop ? bgDesktopNight : bgMobileNight
 
   return (
     <>
       <SC.CommonCon bg={hours >= 5 && hours < 18 ? bgDay : bgNight}>
         {!isMore ? <Quotes /> : null}
-        <div>
-          <SC.GreetingCon>
-            {hours >= 5 && hours < 18 ? <Day /> : <Night />}
-            {isTablet ? (
-              <SC.GreetingText>{greetings}, it's current</SC.GreetingText>
-            ) : (
-              <SC.GreetingText>{greetings}</SC.GreetingText>
-            )}
-          </SC.GreetingCon>
-          <SC.TimeCon>
-            <SC.Time>{actualTime}</SC.Time>
-            <SC.Zone>{timeZoneCode}</SC.Zone>
-          </SC.TimeCon>
-          <SC.LocationCon>
-            <p>In</p>
-            <p>{city ? city : null},</p>
-            <p>{region ? region : null}</p>
-          </SC.LocationCon>
+        <SC.FlexCon>
+          <div>
+            <SC.GreetingCon>
+              {hours >= 5 && hours < 18 ? <Day /> : <Night />}
+              {isTablet || isDesktop ? (
+                <SC.GreetingText>{greetings}, it's current</SC.GreetingText>
+              ) : (
+                <SC.GreetingText>{greetings}</SC.GreetingText>
+              )}
+            </SC.GreetingCon>
+            <SC.TimeCon>
+              <SC.Time>{actualTime}</SC.Time>
+              <SC.Zone>{timeZoneCode}</SC.Zone>
+            </SC.TimeCon>
+            <SC.LocationCon>
+              <p>In</p>
+              <p>{city ? city : null},</p>
+              <p>{region ? region : null}</p>
+            </SC.LocationCon>
+          </div>
           <SC.ToggleButton onClick={handleToggle}>
             <span>{buttonText}</span>
             {!isMore ? <More /> : <Less />}
           </SC.ToggleButton>
-        </div>
+        </SC.FlexCon>
       </SC.CommonCon>
       {isMore ? (
         <SC.AddCon>
