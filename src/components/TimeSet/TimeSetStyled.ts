@@ -24,7 +24,24 @@ export const CommonCon = styled.div<Props>`
     padding-left: 64px;
     padding-top: 80px;
   }
+
+  @media (min-width: 1440px){
+
+    padding-left: 165px;
+    padding-right: 165px;
+    padding-top:56px;
+    padding-bottom: 98px;
+  }
 `;
+
+export const FlexCon = styled.div`
+@media (min-width: 1440px){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+`
 
 export const GreetingCon = styled.div`
   display: flex;
@@ -102,6 +119,10 @@ export const LocationCon = styled.div`
 
   @media (min-width: 768px){
     margin-bottom: 80px;
+  }
+
+  @media (min-width: 1440px){
+    margin-bottom: 0;
   }
 
   & > * {
