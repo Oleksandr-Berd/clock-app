@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 
 import * as SC from "./TimeSetStyled";
@@ -23,8 +22,6 @@ import Quotes from "../Quotes/Quotes";
 
 
 type Props = {
-  ipAddress: string | null;
-  fetchTimeZone: (ipAddress: string) => void;
   timeSetData: TimezoneType | null;
   handleToggle: () => void;
   isMore:boolean;
@@ -32,8 +29,6 @@ type Props = {
 
 
 const TimeSet: React.FC<Props> = ({
-  ipAddress,
-  fetchTimeZone,
   timeSetData,
   handleToggle,
   isMore,
@@ -42,10 +37,6 @@ const TimeSet: React.FC<Props> = ({
     const isTablet = useMediaQuery("(min-width:768px) and (max-width:1439px)");
     const isDesktop = useMediaQuery("(min-width:1440px)")
 
-  useEffect(() => {
-    fetchTimeZone(ipAddress!);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ipAddress]);
 
   const timeZoneCode = timeSetData?.abbreviation;
   const currentTime = timeSetData?.datetime;
