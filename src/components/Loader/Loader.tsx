@@ -1,11 +1,11 @@
 
-import DNA from "react-loader-spinner/dist/loader/Dna";
+import {Dna} from "react-loader-spinner";
 import * as SC from "./LoaderStyled";
 
 const Loader: React.FC = () => {
   return (
     <SC.LoaderStyled>
-      <DNA
+      <Dna
         visible={true}
         height="80"
         width="80"

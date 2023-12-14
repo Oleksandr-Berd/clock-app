@@ -7,14 +7,14 @@ import { TimezoneType } from "./utils/types";
 import Loader from "./components/Loader/Loader";
 
 function App() {
-  const ipAddress = useRef<string | null>(null);
+  const ipAddress = useRef(null);
 
   const [isMore, setIsMore] = useState<boolean>(false);
   const [locationData, setLocationData] = useState<TimezoneType | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchTimeZone = async (ipAddress: string) => {
-    const res = await getTimeZone(ipAddress);
+  const fetchTimeZone = async (ip:string | null) => {
+    const res = await getTimeZone(ip);
 
     if (res?.data?.message) {
       setError(res.data.message);
@@ -31,13 +31,24 @@ function App() {
       ipAddress.current = res.ip;
       localStorage.setItem("ip", res.ip);
     };
-
     fetchIpAddress();
-  });
+  },[]);
+
+  useEffect(()=>{
+   if (ipAddress) {
+
+    const {current} = ipAddress
+
+    fetchTimeZone(current)
+  
+  };
+    
+  },[ipAddress])
 
   const handleToggle = () => {
     setIsMore(!isMore);
   };
+console.log(ipAddress);
 
   return (
     <div>
